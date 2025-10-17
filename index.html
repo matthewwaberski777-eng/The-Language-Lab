@@ -26,7 +26,7 @@ button:focus { outline: none; }
   </div>
 </nav>
 
-<!-- Hero with online placeholder image -->
+<!-- Hero -->
 <section class="bg-gray-400 text-gray-100 py-24 text-center flex flex-col items-center">
   <img src="https://via.placeholder.com/192" alt="Matthew Waberski" class="w-48 h-48 rounded-full mb-6 shadow-lg">
   <h1 class="text-5xl font-bold mb-4">The Language Lab</h1>
@@ -77,14 +77,20 @@ button:focus { outline: none; }
 <footer class="bg-gray-400 text-gray-900 py-6 text-center">&copy; 2025 The Language Lab</footer>
 
 <!-- Calendly embed -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
 const calendlyEmbed = document.getElementById('calendlyEmbed');
 const btn15 = document.getElementById('btn15');
 const btn60 = document.getElementById('btn60');
 
 function loadCalendly(url) {
-  calendlyEmbed.innerHTML = '<div class="calendly-inline-widget" data-url="' + url + '" style="min-width:320px;height:700px;"></div>';
+  calendlyEmbed.innerHTML = '';
+  const iframe = document.createElement('iframe');
+  iframe.src = url;
+  iframe.style.minWidth = '320px';
+  iframe.style.height = '700px';
+  iframe.frameBorder = '0';
+  iframe.className = 'calendly-inline-widget rounded shadow-md';
+  calendlyEmbed.appendChild(iframe);
 }
 
 // Default: 15-min
@@ -96,4 +102,3 @@ btn60.addEventListener('click', () => loadCalendly("https://calendly.com/matthew
 
 </body>
 </html>
-
