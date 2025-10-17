@@ -26,9 +26,9 @@ button:focus { outline: none; }
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- Hero with online placeholder image -->
 <section class="bg-gray-400 text-gray-100 py-24 text-center flex flex-col items-center">
-  <img src="your-photo.jpg" alt="Matthew Waberski" class="w-48 h-48 rounded-full mb-6 shadow-lg">
+  <img src="https://via.placeholder.com/192" alt="Matthew Waberski" class="w-48 h-48 rounded-full mb-6 shadow-lg">
   <h1 class="text-5xl font-bold mb-4">The Language Lab</h1>
   <p class="text-xl mb-8 max-w-2xl mx-auto">English for Global Professionals — Confidence. Clarity. Communication.</p>
   <a href="#booking" class="bg-gray-700 text-white font-bold py-3 px-6 rounded hover:bg-gray-800">Book a Session</a>
@@ -88,10 +88,10 @@ function loadCalendly(url) {
 }
 
 // Default: 15-min
-loadCalendly("https://calendly.com/matthew.waberski777/15-minute-new-meeting");
+loadCalendly("https://calendly.com/matthew-waberski777/15-minute-new-meeting");
 
-btn15.addEventListener('click', () => loadCalendly("https://calendly.com/matthew.waberski777/15-minute-new-meeting"));
-btn60.addEventListener('click', () => loadCalendly("https://calendly.com/matthew.waberski777/new-meeting"));
+btn15.addEventListener('click', () => loadCalendly("https://calendly.com/matthew-waberski777/15-minute-new-meeting"));
+btn60.addEventListener('click', () => loadCalendly("https://calendly.com/matthew-waberski777/new-meeting"));
 </script>
 
 </body>
