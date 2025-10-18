@@ -1,104 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Language Lab</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Language Lab — English for Global Professionals</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
 <style>
-body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-button:focus { outline: none; }
-.bg-brown-700 { background-color: #5a4a42; }
-.hover\:bg-brown-800:hover { background-color: #453a34; }
+:root{
+  --silver: #C0C0C0;
+  --warm-grey: #EDEDED;
+  --dark-brown: #4B3832;
+  --white: #FFFFFF;
+  --muted: #6b7280;
+  --card-shadow: 0 8px 30px rgba(11,12,16,0.06);
+}
+html,body{height:100%}
+body{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--warm-grey) 0%, #f7f7f8 100%);
+  color: #0b1220;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  margin:0;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 1rem;}
+.header{padding:20px 0;display:flex;justify-content:space-between;align-items:center;}
+.brand{display:flex;gap:12px;align-items:center;}
+.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg,var(--white),#f3f3f5);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--dark-brown);box-shadow:0 6px 18px rgba(11,12,16,0.06);}
+.nav a{margin-left:18px;color:var(--muted);text-decoration:none}
+.hero{padding:60px 0 40px;}
+.hero-card{background:var(--white);border-radius:14px;padding:28px;display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center;box-shadow:var(--card-shadow);border:1px solid rgba(11,17,23,0.04);}
+.photo{width:120px;height:120px;border-radius:999px;object-fit:cover;border:2px solid rgba(0,0,0,0.04);}
+.title{font-size:2rem;font-weight:700;margin:0;color:var(--dark-brown);}
+.tag{color:var(--muted);margin-top:6px;margin-bottom:10px;}
+.ctas{display:flex;gap:12px;margin-top:12px;}
+.btn-primary{background:linear-gradient(180deg,var(--silver),#bdbdbd);color:var(--dark-brown);padding:10px 16px;border-radius:10px;border:none;font-weight:600;cursor:pointer;box-shadow:0 10px 20px rgba(0,0,0,0.06);}
+.btn-ghost{background:transparent;border:1px solid rgba(11,17,23,0.04);padding:10px 14px;border-radius:10px;cursor:pointer;color:var(--dark-brown)}
+
+/* About + booking */
+.section{padding:48px 0;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+.card{background:var(--white);padding:18px;border-radius:12px;box-shadow:var(--card-shadow);border:1px solid rgba(11,17,23,0.04);}
+.tabs{display:flex;gap:10px;margin-bottom:14px;}
+.tab{padding:8px 12px;border-radius:9px;cursor:pointer;border:1px solid rgba(11,17,23,0.04);background:transparent;color:var(--dark-brown);font-weight:600}
+.tab.active{background:linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.06));box-shadow:0 8px 20px rgba(9,11,18,0.03)}
+
+/* contact */
+.form-row{display:flex;gap:12px;}
+.input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,17,23,0.06)}
+
+/* footer */
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-card{grid-template-columns:1fr; text-align:center;}
+  .grid-2{grid-template-columns:1fr;}
+  .form-row{flex-direction:column}
+}
 </style>
 </head>
-<body class="font-sans bg-gray-100 text-gray-900">
+<body>
 
-<!-- Navbar -->
-<nav class="bg-gray-300 shadow-md">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <div class="text-2xl font-bold">The Language Lab</div>
+<header class="container header">
+  <div class="brand">
+    <div class="logo">TL</div>
     <div>
-      <a href="#about" class="px-4 hover:text-gray-700">About</a>
-      <a href="#booking" class="px-4 hover:text-gray-700">Book</a>
-      <a href="#contact" class="px-4 hover:text-gray-700">Contact</a>
+      <div style="font-weight:700;">The Language Lab</div>
+      <div style="font-size:12px;color:var(--muted)">English for Global Professionals</div>
     </div>
   </div>
-</nav>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<!-- Hero -->
-<section class="bg-gray-400 text-gray-100 py-24 text-center flex flex-col items-center">
-  <img src="https://via.placeholder.com/192" alt="Matthew Waberski" class="w-48 h-48 rounded-full mb-6 shadow-lg">
-  <h1 class="text-5xl font-bold mb-4">The Language Lab</h1>
-  <p class="text-xl mb-8 max-w-2xl mx-auto">English for Global Professionals — Confidence. Clarity. Communication.</p>
-  <a href="#booking" class="bg-gray-700 text-white font-bold py-3 px-6 rounded hover:bg-gray-800">Book a Session</a>
-</section>
-
-<!-- About -->
-<section id="about" class="py-20 container mx-auto px-6">
-  <h2 class="text-3xl font-bold mb-6 text-center">Our Approach</h2>
-  <p class="max-w-3xl mx-auto mb-4">At The Language Lab, we help professionals in finance, technology, and international business improve their English through real conversation, not grammar drills. Each session covers real-world topics like global markets, AI, stocks, property, and leadership. We also explore areas outside your comfort zone to strengthen weaker areas and build confidence.</p>
-  <p class="max-w-3xl mx-auto">We work with professionals across Europe and the Middle East, including economists, analysts, software developers, and managers in multinational companies.</p>
-</section>
-
-<!-- Booking -->
-<section id="booking" class="py-20 bg-gray-300">
-  <div class="container mx-auto px-6 max-w-3xl">
-    <h2 class="text-3xl font-bold mb-6 text-center">Book a Session</h2>
-    <div class="flex justify-center mb-6">
-      <button id="btn15" class="px-4 py-2 m-2 bg-brown-700 text-white rounded hover:bg-brown-800">15-Minute Discovery</button>
-      <button id="btn60" class="px-4 py-2 m-2 bg-brown-700 text-white rounded hover:bg-brown-800">60-Minute Session</button>
+<main class="container">
+  <section class="hero">
+    <div class="hero-card">
+      <img class="photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="placeholder photo">
+      <div>
+        <h1 class="title">The Language Lab</h1>
+        <div class="tag">English for Global Professionals — Confidence. Clarity. Communication.</div>
+        <p style="color:var(--muted);max-width:62ch;">I work with professionals in finance, economics, technology and international business to improve spoken English through real conversation and professional topics like markets, AI, leadership and property.</p>
+        <div class="ctas">
+          <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a Free 15-min</button>
+          <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+        </div>
+      </div>
     </div>
-    <div id="calendlyEmbed" class="rounded shadow-md"></div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section id="contact" class="py-20 container mx-auto px-6 max-w-3xl">
-  <h2 class="text-3xl font-bold mb-6 text-center">Contact</h2>
-  <form class="bg-gray-400 p-6 rounded shadow-md space-y-4" action="mailto:matthew.waberski777@gmail.com" method="POST" enctype="text/plain">
-    <label class="block">
-      <span class="text-gray-900">Name</span>
-      <input type="text" name="name" class="mt-1 block w-full border-gray-700 rounded-md" required>
-    </label>
-    <label class="block">
-      <span class="text-gray-900">Email</span>
-      <input type="email" name="email" class="mt-1 block w-full border-gray-700 rounded-md" required>
-    </label>
-    <label class="block">
-      <span class="text-gray-900">Message</span>
-      <textarea name="message" rows="4" class="mt-1 block w-full border-gray-700 rounded-md" required></textarea>
-    </label>
-    <button type="submit" class="bg-gray-700 text-white font-bold py-2 px-4 rounded hover:bg-gray-800 w-full">Send Message</button>
-  </form>
-</section>
+  <section id="about" class="section">
+    <div class="grid-2">
+      <div>
+        <h2 style="margin-top:0">Approach & Method</h2>
+        <div style="color:var(--muted);max-width:60ch;">Each session is tailored to your professional domain. We use conversation-first practice, real-world topics, and targeted feedback to build a natural voice in English — not grammar drills.</div>
+        <ul style="margin-top:12px;color:var(--muted)">
+          <li>• Real topics: markets, AI, crypto, property, leadership</li>
+          <li>• Tailored feedback and practical language</li>
+          <li>• Sessions for professionals across Europe & the Middle East</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:8px">Why this works</div>
+          <div style="color:var(--muted)">Context-driven conversation builds fluency faster. We focus on speaking with clarity in meetings, presentations and interviews.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-gray-400 text-gray-900 py-6 text-center">&copy; 2025 The Language Lab</footer>
+  <section id="booking" class="section">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-weight:700">Book a session</div>
+          <div style="color:var(--muted);font-size:13px">Choose a 15-minute discovery or a 60-minute lesson</div>
+        </div>
+        <div style="color:var(--muted);font-size:13px">Payments via Stripe (coming soon)</div>
+      </div>
 
-<!-- Calendly embed -->
+      <div class="tabs">
+        <div id="tab15" class="tab active">15-minute discovery (free)</div>
+        <div id="tab60" class="tab">60-minute lesson</div>
+      </div>
+
+      <div id="embedArea" style="min-height:520px;border-radius:10px;overflow:hidden;border:1px solid rgba(11,17,23,0.04)"></div>
+
+      <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:10px">
+        <button id="openBtn" class="btn-ghost">Open in Calendly</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="card">
+      <h3 style="margin-top:0">Contact</h3>
+      <div style="color:var(--muted)">Email: <strong>matthew.waberski777@gmail.com</strong></div>
+      <form style="margin-top:12px" action="mailto:matthew.waberski777@gmail.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <input class="input" name="name" placeholder="Your name" required>
+          <input class="input" name="email" type="email" placeholder="Your email" required>
+        </div>
+        <div style="margin-top:10px">
+          <textarea class="input" name="message" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <div style="margin-top:12px;display:flex;justify-content:flex-end">
+          <button class="btn-primary" type="submit">Send message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container"><div style="max-width:900px;margin:0 auto;color:var(--muted);text-align:center">© 2025 The Language Lab — English for Global Professionals</div></div>
+</footer>
+
 <script>
-const calendlyEmbed = document.getElementById('calendlyEmbed');
-const btn15 = document.getElementById('btn15');
-const btn60 = document.getElementById('btn60');
+const CAL15 = "https://calendly.com/matthew-waberski777/15-minute-new-meeting";
+const CAL60 = "https://calendly.com/matthew-waberski777/new-meeting";
 
-function loadCalendly(url) {
-  calendlyEmbed.innerHTML = '';
+const embedArea = document.getElementById('embedArea');
+const tab15 = document.getElementById('tab15');
+const tab60 = document.getElementById('tab60');
+const openBtn = document.getElementById('openBtn');
+
+function loadEmbed(url){
+  embedArea.innerHTML = "";
   const iframe = document.createElement('iframe');
   iframe.src = url;
-  iframe.style.minWidth = '320px';
-  iframe.style.height = '700px';
+  iframe.style.width = '100%';
+  iframe.style.height = '520px';
   iframe.frameBorder = '0';
-  iframe.className = 'calendly-inline-widget rounded shadow-md';
-  calendlyEmbed.appendChild(iframe);
+  iframe.title = 'Booking calendar';
+  iframe.allow = 'fullscreen; autoplay; clipboard-write';
+  embedArea.appendChild(iframe);
 }
 
-// Default: 15-min
-loadCalendly("https://calendly.com/matthew-waberski777/15-minute-new-meeting");
+tab15.addEventListener('click', ()=>{ tab15.classList.add('active'); tab60.classList.remove('active'); loadEmbed(CAL15); });
+tab60.addEventListener('click', ()=>{ tab60.classList.add('active'); tab15.classList.remove('active'); loadEmbed(CAL60); });
 
-btn15.addEventListener('click', () => loadCalendly("https://calendly.com/matthew-waberski777/15-minute-new-meeting"));
-btn60.addEventListener('click', () => loadCalendly("https://calendly.com/matthew-waberski777/new-meeting"));
+openBtn.addEventListener('click', ()=>{ const active = tab60.classList.contains('active') ? CAL60 : CAL15; window.open(active, '_blank'); });
+
+// load default
+loadEmbed(CAL15);
 </script>
-
 </body>
 </html>
